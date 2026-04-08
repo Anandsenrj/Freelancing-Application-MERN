@@ -1,10 +1,17 @@
-import express from "express";
-import User from "../models/User.js";
-const router=express.Router();
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
 
-router.post("/login",async(req,res)=>{
-  const user=await User.findOne({email:req.body.email});
-  res.json(user||{email:req.body.email});
+  // Dummy admin
+  if (email === "admin@gmail.com" && password === "admin123") {
+    return res.json({ email, userType: "admin" });
+  }
+
+  // Normal user
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    return res.json({ email, userType: "freelancer" });
+  }
+
+  res.json({ email, userType: "freelancer" });
 });
-
-export default router;
