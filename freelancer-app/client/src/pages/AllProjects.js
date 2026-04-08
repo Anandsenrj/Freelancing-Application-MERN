@@ -19,13 +19,12 @@ export default function AllProjects() {
         <div className="row">
           {projects.map(p => (
             <div className="col-md-4" key={p._id}>
-             <div className="card shadow p-3 my-3">
-  <h5 className="text-primary">{p.title}</h5>
-  <p>{p.description}</p>
-  <p className="fw-bold">Budget: ₹{p.budget}</p>
-
-  <button className="btn btn-outline-success">Apply</button>
-</div>
+              <div className="card p-3 my-2 shadow text-dark">
+                <h5>{p.title}</h5>
+                <p>{p.description}</p>
+                <p><b>₹{p.budget}</b></p>
+                <button className="btn btn-outline-success">Apply</button>
+              </div>
             </div>
           ))}
         </div>
