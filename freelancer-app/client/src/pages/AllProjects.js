@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function AllProjects() {
@@ -10,13 +11,24 @@ export default function AllProjects() {
   }, []);
 
   return (
-    <div>
-      <h2>All Projects</h2>
-      {projects.map(p => (
-        <div key={p._id}>
-          <h3>{p.title}</h3>
+    <>
+      <Navbar />
+      <div className="container mt-4">
+        <h2>All Projects</h2>
+
+        <div className="row">
+          {projects.map(p => (
+            <div className="col-md-4" key={p._id}>
+              <div className="card p-3 my-2 shadow">
+                <h5>{p.title}</h5>
+                <p>{p.description}</p>
+                <p><b>₹{p.budget}</b></p>
+                <button className="btn btn-outline-primary">Apply</button>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 }
