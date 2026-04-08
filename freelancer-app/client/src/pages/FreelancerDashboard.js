@@ -1,35 +1,22 @@
-import Navbar from "../components/Navbar";
+<div className="row text-center">
+  <div className="col-md-4">
+    <div className="card p-4 shadow">
+      <h4>Projects</h4>
+      <h2>3</h2>
+    </div>
+  </div>
 
-export default function FreelancerDashboard() {
-  return (
-    <>
-      <Navbar />
-      <div className="container mt-4">
-        <h2>Freelancer Dashboard</h2>
+  <div className="col-md-4">
+    <div className="card p-4 shadow">
+      <h4>Applications</h4>
+      <h2>5</h2>
+    </div>
+  </div>
 
-        <div className="row">
-          <div className="col-md-3">
-            <div className="card p-3 text-center shadow">
-              <h5>Projects</h5>
-              <p>2</p>
-            </div>
-          </div>
-
-          <div className="col-md-3">
-            <div className="card p-3 text-center shadow">
-              <h5>Applications</h5>
-              <p>3</p>
-            </div>
-          </div>
-
-          <div className="col-md-3">
-            <div className="card p-3 text-center shadow">
-              <h5>Funds</h5>
-              <p>₹5000</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+  <div className="col-md-4">
+    <div className="card p-4 shadow">
+      <h4>Funds</h4>
+      <h2>₹5000</h2>
+    </div>
+  </div>
+</div>
