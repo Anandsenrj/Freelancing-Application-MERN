@@ -1,17 +1,24 @@
+import express from "express";
+import User from "../models/User.js";
+
+const router = express.Router();
+
+// LOGIN
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  // Dummy admin
+  // Admin login
   if (email === "admin@gmail.com" && password === "admin123") {
     return res.json({ email, userType: "admin" });
   }
 
-  // Normal user
   const user = await User.findOne({ email });
 
-  if (!user) {
-    return res.json({ email, userType: "freelancer" });
+  if (!user || user.password !== password) {
+    return res.status(401).json({ message: "Invalid credentials" });
   }
 
-  res.json({ email, userType: "freelancer" });
+  res.json({ email, userType: user.userType });
 });
+
+export default router;
