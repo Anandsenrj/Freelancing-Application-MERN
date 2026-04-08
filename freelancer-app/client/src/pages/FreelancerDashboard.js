@@ -1,33 +1,24 @@
 import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function FreelancerDashboard() {
+  const [stats, setStats] = useState({});
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/projects/stats")
+      .then(res => setStats(res.data));
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className="container mt-4">
-        <h2 className="mb-4">Freelancer Dashboard</h2>
+        <h2>Dashboard</h2>
 
-        <div className="row text-center">
-          <div className="col-md-4">
-            <div className="card p-4 shadow">
-              <h4>Projects</h4>
-              <h2>3</h2>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card p-4 shadow">
-              <h4>Applications</h4>
-              <h2>5</h2>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card p-4 shadow">
-              <h4>Funds</h4>
-              <h2>₹5000</h2>
-            </div>
-          </div>
+        <div className="card p-4 text-center text-dark">
+          <h4>Total Projects</h4>
+          <h1>{stats.totalProjects}</h1>
         </div>
       </div>
     </>
