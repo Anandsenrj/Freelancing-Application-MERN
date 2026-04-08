@@ -7,22 +7,21 @@ export default function AdminDashboard() {
       <div className="container mt-4">
         <h2>Admin Dashboard</h2>
 
-        <div className="row">
-          <div className="col-md-3">
-            <div className="card p-3 text-center shadow">
-              <h5>Users</h5>
-              <p>10</p>
-            </div>
-          </div>
+       <div className="row text-center">
+  <div className="col-md-6">
+    <div className="card p-4 shadow">
+      <h4>Total Users</h4>
+      <h2>10</h2>
+    </div>
+  </div>
 
-          <div className="col-md-3">
-            <div className="card p-3 text-center shadow">
-              <h5>Projects</h5>
-              <p>5</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div className="col-md-6">
+    <div className="card p-4 shadow">
+      <h4>Total Projects</h4>
+      <h2>6</h2>
+    </div>
+  </div>
+</div>      </div>
     </>
   );
 }
