@@ -1,19 +1,20 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
+import Project from "./models/Project.js";
 
-import userRoutes from "./routes/userRoutes.js";
-import projectRoutes from "./routes/projectRoutes.js";
+mongoose.connection.once("open", async () => {
+  const count = await Project.countDocuments();
 
-const app=express();
-app.use(cors());
-app.use(express.json());
-
-mongoose.connect("mongodb://127.0.0.1:27017/freelancer")
-.then(()=>console.log("MongoDB Connected"))
-.catch(err=>console.log(err));
-
-app.use("/api/users",userRoutes);
-app.use("/api/projects",projectRoutes);
-
-app.listen(5000,()=>console.log("Server running"));
+  if (count === 0) {
+    await Project.insertMany([
+      {
+        title: "Logo Design",
+        description: "Design logo for startup",
+        budget: 2000
+      },
+      {
+        title: "Website Development",
+        description: "Build MERN website",
+        budget: 8000
+      }
+    ]);
+  }
+});
