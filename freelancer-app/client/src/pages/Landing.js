@@ -4,12 +4,22 @@ export default function Landing() {
   return (
     <>
       <Navbar />
-      <div className="container text-center mt-5">
-        <h1 className="display-2 fw-bold">SB Works</h1>
-        <p className="lead">Hire & Work with the Best</p>
 
-        <a href="/projects" className="btn btn-light btn-lg m-2">Browse</a>
-        <a href="/login" className="btn btn-warning btn-lg m-2">Start</a>
+      <div
+        style={{
+          height: "90vh",
+          backgroundImage: "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        className="d-flex flex-column justify-content-center align-items-center text-white"
+      >
+        <h1 className="display-2 fw-bold">SB Works</h1>
+        <p className="lead">Find Freelancers & Projects Easily</p>
+
+        <a href="/login" className="btn btn-warning btn-lg mt-3">
+          Sign In
+        </a>
       </div>
     </>
   );
