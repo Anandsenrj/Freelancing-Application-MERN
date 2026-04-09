@@ -1,19 +1,29 @@
 import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Applications() {
+  const [apps, setApps] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/applications")
+      .then(res => setApps(res.data));
+  }, []);
+
   return (
     <>
       <Navbar />
-
       <div className="container mt-4 text-dark">
-        <h3>My Applications</h3>
+        <h2>Applications</h2>
 
-        <div className="card p-3">
-          <h5>Web App Project</h5>
-          <p>Proposal: MERN developer with 2 years experience</p>
-          <p>Status: Accepted</p>
-        </div>
-
+        {apps.map(a => (
+          <div className="card p-3 my-2">
+            <h5>{a.projectTitle}</h5>
+            <p>{a.proposal}</p>
+            <p>Bid ₹{a.bidAmount}</p>
+            <p>Status: {a.status}</p>
+          </div>
+        ))}
       </div>
     </>
   );
