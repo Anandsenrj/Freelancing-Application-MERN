@@ -22,3 +22,8 @@ router.get("/stats", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+router.delete("/:id", async (req, res) => {
+  await Project.findByIdAndDelete(req.params.id);
+  res.json({ message: "Deleted" });
+});
