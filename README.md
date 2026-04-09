@@ -65,7 +65,7 @@ freelancer-app/
 ### 🔹 Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/your-username/freelancer-app.git
+git clone https://github.com/Anandsenrj/freelancer-app.git
 cd freelancer-app
 ```
 
