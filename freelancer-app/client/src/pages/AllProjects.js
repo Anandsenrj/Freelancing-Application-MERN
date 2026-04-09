@@ -5,10 +5,19 @@ import axios from "axios";
 export default function AllProjects() {
   const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
+  const fetchProjects = () => {
     axios.get("http://localhost:5000/api/projects")
       .then(res => setProjects(res.data));
+  };
+
+  useEffect(() => {
+    fetchProjects();
   }, []);
+
+  const deleteProject = async (id) => {
+    await axios.delete(`http://localhost:5000/api/projects/${id}`);
+    fetchProjects();
+  };
 
   return (
     <>
@@ -22,8 +31,11 @@ export default function AllProjects() {
               <div className="card p-3 my-2 shadow text-dark">
                 <h5>{p.title}</h5>
                 <p>{p.description}</p>
-                <p><b>₹{p.budget}</b></p>
-                <button className="btn btn-outline-success">Apply</button>
+                <p><b>Budget: ₹{p.budget}</b></p>
+
+                <button className="btn btn-danger" onClick={() => deleteProject(p._id)}>
+                  Delete
+                </button>
               </div>
             </div>
           ))}
