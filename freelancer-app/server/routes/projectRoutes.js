@@ -13,3 +13,12 @@ router.post("/",async(req,res)=>{
 });
 
 export default router;
+// GET STATS (IMPORTANT)
+router.get("/stats", async (req, res) => {
+  try {
+    const totalProjects = await Project.countDocuments();
+    res.json({ totalProjects });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
