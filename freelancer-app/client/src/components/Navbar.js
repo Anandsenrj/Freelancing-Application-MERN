@@ -2,16 +2,18 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-light bg-white shadow-sm px-4">
-      <h4 className="text-danger">SB Works</h4>
+    <nav className="navbar navbar-expand-lg navbar-light navbar-glass shadow-sm px-4">
+      <Link className="navbar-brand fw-bold text-danger" to="/">
+        SB Works
+      </Link>
 
-      <div>
-        <Link className="mx-2" to="/dashboard">Dashboard</Link>
-        <Link className="mx-2" to="/projects">All Projects</Link>
-        <Link className="mx-2" to="/my-projects">My Projects</Link>
-        <Link className="mx-2" to="/applications">Applications</Link>
-        <Link className="mx-2" to="/chat">Chat</Link>
-        <Link className="mx-2" to="/login">Logout</Link>
+      <div className="ms-auto">
+        <Link className="btn btn-outline-dark m-1" to="/">Home</Link>
+        <Link className="btn btn-outline-dark m-1" to="/dashboard">Dashboard</Link>
+        <Link className="btn btn-outline-dark m-1" to="/projects">Projects</Link>
+        <Link className="btn btn-outline-dark m-1" to="/my-projects">My Projects</Link>
+        <Link className="btn btn-outline-dark m-1" to="/applications">Applications</Link>
+        <Link className="btn btn-warning m-1" to="/login">Login</Link>
       </div>
     </nav>
   );
