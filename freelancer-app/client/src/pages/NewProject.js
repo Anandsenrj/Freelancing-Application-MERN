@@ -4,12 +4,13 @@ import axios from "axios";
 
 export default function NewProject() {
   const [title, setTitle] = useState("");
+  const [budget, setBudget] = useState("");
 
   const submit = async () => {
     await axios.post("http://localhost:5000/api/projects", {
       title,
-      description: "Demo project",
-      budget: 1000
+      description: "Demo",
+      budget
     });
     alert("Created");
   };
@@ -17,17 +18,18 @@ export default function NewProject() {
   return (
     <>
       <Navbar />
-      <div className="container mt-4">
-        <div className="card p-4 text-dark">
-          <h3>Create Project</h3>
+      <div className="container mt-4 text-dark">
+        <input className="form-control my-2"
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)} />
 
-          <input className="form-control my-2"
-            onChange={e => setTitle(e.target.value)} />
+        <input className="form-control my-2"
+          placeholder="Budget"
+          onChange={(e) => setBudget(e.target.value)} />
 
-          <button className="btn btn-success" onClick={submit}>
-            Submit
-          </button>
-        </div>
+        <button className="btn btn-primary" onClick={submit}>
+          Submit
+        </button>
       </div>
     </>
   );
