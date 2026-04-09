@@ -1,35 +1,25 @@
 import Navbar from "../components/Navbar";
-import { useState } from "react";
-import axios from "axios";
 
-export default function NewProject() {
-  const [title, setTitle] = useState("");
-  const [budget, setBudget] = useState("");
-
-  const submit = async () => {
-    await axios.post("http://localhost:5000/api/projects", {
-      title,
-      description: "Demo",
-      budget
-    });
-    alert("Created");
-  };
-
+export default function MyProjects() {
   return (
     <>
       <Navbar />
+
       <div className="container mt-4 text-dark">
-        <input className="form-control my-2"
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)} />
+        <h3>My Projects</h3>
 
-        <input className="form-control my-2"
-          placeholder="Budget"
-          onChange={(e) => setBudget(e.target.value)} />
+        <div className="card p-3 mb-3">
+          <h5>E-commerce Website</h5>
+          <p>Budget ₹8000</p>
+          <p>Status: Completed</p>
+        </div>
 
-        <button className="btn btn-primary" onClick={submit}>
-          Submit
-        </button>
+        <div className="card p-3">
+          <h5>Portfolio Website</h5>
+          <p>Budget ₹3000</p>
+          <p>Status: Ongoing</p>
+        </div>
+
       </div>
     </>
   );
