@@ -1,15 +1,47 @@
+/* Gradient background */
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
+  color: #222;
 }
 
+/* Glass navbar */
+.navbar-glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Cards */
 .card {
-  border-radius: 15px;
-  transition: transform 0.3s ease;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
 }
 
-.card:hover {
-  transform: scale(1.05);
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(45deg, #ff7a18, #ffb347);
+  border: none;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: rgba(0,0,0,0.55);
+  height: 100%;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
 }
