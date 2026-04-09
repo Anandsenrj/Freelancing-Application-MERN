@@ -14,25 +14,14 @@ export default function Chat() {
     });
   }, []);
 
-  const send = () => {
-    socket.emit("sendMessage", msg);
-    setMsg("");
-  };
-
   return (
     <>
       <Navbar />
       <div className="container mt-4">
-        <h3>Chat</h3>
-
         {messages.map((m, i) => <p key={i}>{m}</p>)}
 
-        <input
-          className="form-control my-2"
-          onChange={e => setMsg(e.target.value)}
-        />
-
-        <button className="btn btn-primary" onClick={send}>
+        <input onChange={(e) => setMsg(e.target.value)} />
+        <button onClick={() => socket.emit("sendMessage", msg)}>
           Send
         </button>
       </div>
