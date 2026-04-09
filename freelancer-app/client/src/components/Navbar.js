@@ -10,6 +10,7 @@ export default function Navbar() {
       <div className="ms-auto">
         <Link className="btn btn-outline-dark m-1" to="/">Home</Link>
         <Link className="btn btn-outline-dark m-1" to="/dashboard">Dashboard</Link>
+        <Link className="btn btn-primary mx-2" to="/new-project">+ Add Project</Link>
         <Link className="btn btn-outline-dark m-1" to="/projects">Projects</Link>
         <Link className="btn btn-outline-dark m-1" to="/my-projects">My Projects</Link>
         <Link className="btn btn-outline-dark m-1" to="/applications">Applications</Link>
