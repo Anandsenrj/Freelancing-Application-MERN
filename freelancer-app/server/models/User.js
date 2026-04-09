@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-  username: String,
   email: String,
   password: String,
-  userType: { type: String, default: "freelancer" }
+  userType: String,
+
+  // ✅ NEW
+  skills: [String],
+  description: String
 });
 
 export default mongoose.model("User", userSchema);
